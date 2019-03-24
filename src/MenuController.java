@@ -20,47 +20,43 @@ public class MenuController {
 
     public void clicked(ActionEvent event) throws IOException {
         String id = ((Button) event.getSource()).getId();
-        String file = null;
-        System.out.println(id);
-        if (id.equals("start")) {
-            FileChooser dc = new FileChooser();
-            dc.setInitialDirectory(new File(System.getProperty("user.dir")));
-            dc.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML File", "*.XML"));
-            File f = dc.showOpenDialog(mystage);
-            System.out.println(System.getProperty("user.dir"));
-            if (f != null) {
-                readXML.read(f.getPath());
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bar.fxml"));
+        switch (id) {
+            case "start":
+                FileChooser dc = new FileChooser();
+                dc.setInitialDirectory(new File(System.getProperty("user.dir")));
+                dc.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML File", "*.XML"));
+                File f = dc.showOpenDialog(mystage);
+                System.out.println(System.getProperty("user.dir"));
+                if (f != null) {
+                    readXML.read(f.getPath());
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("bar.fxml"));
+                    Parent root = fxmlLoader.load();
+                    /**/
+                    mystage.setAlwaysOnTop(true);
+                    mystage.setX(0);
+                    mystage.setY(Screen.getPrimary().getVisualBounds().getMaxY() - Screen.getPrimary().getVisualBounds().getMaxY() / 20);
+                    /**/
+                    BarController barController = fxmlLoader.getController();
+                    barController.setup(mystage, f.getPath());
+                    mystage.setScene(new Scene(root, Screen.getPrimary().getVisualBounds().getWidth(), Screen.getPrimary().getVisualBounds().getMaxY() / 20));
+                    mystage.show();
+                }
+                break;
+            case "edit":
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit.fxml"));
                 Parent root = fxmlLoader.load();
-                mystage.setAlwaysOnTop(true);
-//            mystage.initStyle(StageStyle.UNDECORATED);
-                System.out.println();
-                mystage.setX(0);
-                mystage.setY(Screen.getPrimary().getVisualBounds().getMaxY() - Screen.getPrimary().getVisualBounds().getMaxY() / 20);
-                BarController barController = fxmlLoader.getController();
-                System.out.println(f.getPath());
-                barController.setup(mystage, f.getPath());
-                mystage.setScene(new Scene(root, Screen.getPrimary().getVisualBounds().getWidth(), Screen.getPrimary().getVisualBounds().getMaxY() / 20));
+                EditController editController = fxmlLoader.getController();
+                editController.setup(mystage);
+                mystage.setScene(new Scene(root, 680, 540));
                 mystage.show();
-                System.out.println(mystage);
-            }
-
-
-        } else if (id.equals("edit")) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit.fxml"));
-            Parent root = fxmlLoader.load();
-            EditController editController = fxmlLoader.getController();
-            editController.setup(mystage);
-            mystage.setScene(new Scene(root, 680, 540));
-            mystage.show();
-            System.out.println(mystage);
-        } else {
-            mystage.close();
-            System.out.println(mystage);
+                break;
+            default:
+                mystage.close();
+                break;
         }
     }
 
-    public void setup(Stage stage) {
+    void setup(Stage stage) {
         mystage = stage;
     }
 

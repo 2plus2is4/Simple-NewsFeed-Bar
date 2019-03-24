@@ -15,8 +15,8 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.ArrayList;
 
-public class saveXML {
-    public static void save(ArrayList arrayList,String name) throws ParserConfigurationException, TransformerException {
+class saveXML {
+    static void save(ArrayList arrayList, String name) throws ParserConfigurationException, TransformerException {
         //setting document
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();

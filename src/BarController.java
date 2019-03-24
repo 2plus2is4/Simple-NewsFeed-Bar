@@ -1,4 +1,3 @@
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,17 +44,15 @@ public class BarController{
         }, 0L, 5000L);
     }
 
-    public void close(ActionEvent event) throws IOException {
+    public void close() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
         MenuController menuController = fxmlLoader.getController();
         menuController.setup(mystage);
-//        mystage.initStyle(StageStyle.DECORATED);
         mystage.setX(533.0);
         mystage.setY(151.0);
         mystage.setAlwaysOnTop(false);
         mystage.setScene(new Scene(root, 300, 275));
         mystage.show();
-        System.out.println(mystage);
     }
 }
