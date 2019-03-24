@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="540.0" maxWidth="680.0" minHeight="540.0" minWidth="680.0" prefHeight="540.0" prefWidth="680.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditController">
+   <top>
+      <HBox prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#click" prefHeight="39.0" prefWidth="54.0" text="←" />
+            <TextField id="entry" fx:id="txt" onInputMethodTextChanged="#typing" onKeyPressed="#typing" onKeyReleased="#typing" onKeyTyped="#typing" prefHeight="39.0" prefWidth="481.0" />
+            <Button fx:id="add" mnemonicParsing="false" onAction="#click" text="Add" />
+            <Button fx:id="remov" mnemonicParsing="false" onAction="#click" text="Remove" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ListView fx:id="list" prefHeight="322.0" prefWidth="691.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbl" prefHeight="39.0" prefWidth="545.0" text="hello">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="save" mnemonicParsing="false" onAction="#click" text="Save" />
+            <Button fx:id="load" mnemonicParsing="false" onAction="#click" text="Load" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

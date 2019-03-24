@@ -1,5 +1,3 @@
-package sample;
-
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentType;
@@ -18,7 +16,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class saveXML {
-    public static void save(ArrayList arrayList) throws ParserConfigurationException, TransformerException {
+    public static void save(ArrayList arrayList,String name) throws ParserConfigurationException, TransformerException {
         //setting document
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -31,7 +29,7 @@ public class saveXML {
         for (Object o : arrayList) {
             Element element = document.createElement("string");
             element.setTextContent((String) o);
-            document.appendChild(element);
+            root.appendChild(element);
         }
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -43,7 +41,7 @@ public class saveXML {
         transformer.setOutputProperty(OutputKeys.METHOD, "xml");
 
         DOMSource source = new DOMSource(document);
-        StreamResult result = new StreamResult(new File("news"));
+        StreamResult result = new StreamResult(new File(name));
         transformer.transform(source, result);
 
 
