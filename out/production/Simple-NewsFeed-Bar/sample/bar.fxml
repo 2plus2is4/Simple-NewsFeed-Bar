@@ -6,11 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="600.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BarController">
-   <center>
-      <TextArea fx:id="News" prefHeight="107.0" prefWidth="548.0" BorderPane.alignment="CENTER" />
-   </center>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #FF0000;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BarController">
    <right>
-      <Button id="exit" fx:id="X" mnemonicParsing="false" onAction="#close" styleClass="exit" text="X" textFill="RED" BorderPane.alignment="CENTER" />
+      <Button id="X" fx:id="X" mnemonicParsing="false" onAction="#close" styleClass="exit" text="X" textFill="RED" BorderPane.alignment="CENTER" />
    </right>
+   <center>
+      <TextField fx:id="News" prefHeight="104.0" prefWidth="565.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

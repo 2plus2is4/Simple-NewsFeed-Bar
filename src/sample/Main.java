@@ -14,6 +14,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
         primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setX(0);
+        primaryStage.setY(0);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Hello World");
         MenuController menuController = fxmlLoader.getController();

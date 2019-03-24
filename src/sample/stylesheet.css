@@ -11,14 +11,19 @@
     -fx-cursor: hand;
 }
 
-.textarea{
-    -fx-background-color: red;
-    -fx-font-size: 18px;
-    -fx-text-fill: white;
+.text-field{
+    -fx-background-color: #ff0000;
+    -fx-font-size: 15px;
+    -fx-font-family: UniSansRegular;
+    -fx-text-fill: #ffffff;
 }
 
 #X{
     -fx-background-color: #ff0000;
     -fx-font-size: 18px;
     -fx-text-fill: white;
+}
+
+.border-pane{
+    -fx-background-color: #ff0000;
 }
