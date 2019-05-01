@@ -52,6 +52,7 @@ public class MenuController {
                 break;
             default:
                 mystage.close();
+                System.exit(0);
                 break;
         }
     }
